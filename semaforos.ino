@@ -27,7 +27,7 @@ void semaphoreOne() {
    count++;
    delay(200);
  }
- // Programamos el cambio entre semaforos. Cuando el LED tiene la posicion LOW estara apagado, mientras que si esta en posicion HIGH estada encendido.
+ // Programamos el cambio entre semaforos. Cuando el LED tiene la posicion LOW estara apagado, mientras que si esta en posicion HIGH estara encendido.
  digitalWrite(2, LOW);
  delay(500);
  digitalWrite(2, HIGH);
