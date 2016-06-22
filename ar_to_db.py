@@ -5,6 +5,7 @@
 #Se esta utilizando el siguiente tipo de cURL
 #curl -X POST -d '{ "fecha": "15/06/2016", "referencia": "humedad", "valor": "" }' \
 #https://proyard2.firebaseio.com/humedad.json
+#
 
 import serial
 #import pycurl
