@@ -20,7 +20,7 @@ void loop()
   {
     movimiento = 1;
   }
-  if(digitalRead(7) == HIGH)
+  if(digitalRead(7) == 1)
   {
     humo = 1;
   }
