@@ -43,7 +43,7 @@ if bEncontrado:
 	url_m = "https://proyard2.firebaseio.com/movimiento/"+fecha+".json"
 	url_h = "https://proyard2.firebaseio.com/humedad/"+fecha+".json"
 	url_t = "https://proyard2.firebaseio.com/temperatura/"+fecha+".json"
-	url_hu = "https://proyard2.firebaseio.com/humo/"+fecha+".json"
+	url_hu = "https://proyard2.firebaseio.com/gases/"+fecha+".json"
 	valor_ant_t = ''
 	valor_ant_h = ''
 
@@ -57,7 +57,7 @@ if bEncontrado:
 				r_m = requests.post(url_m, data = json.dumps({ "referencia": "movimiento", "valor":lectura[0], "hora": hora, "fecha": fecha}))
 			
 			if lectura[1] == '1':
-				r_m = requests.post(url_m, data = json.dumps({ "referencia": "humo", "valor":lectura[1], "hora": hora, "fecha": fecha}))
+				r_m = requests.post(url_hu, data = json.dumps({ "referencia": "gas", "valor":lectura[1], "hora": hora, "fecha": fecha}))
 
 			if valor_ant_h != lectura[2]:
 				r_h = requests.post(url_h, data = json.dumps({ "referencia": "humedad", "valor":lectura[2], "hora": hora, "fecha": fecha}))
