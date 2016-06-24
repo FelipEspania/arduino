@@ -43,27 +43,31 @@ if bEncontrado:
 	url_m = "https://proyard2.firebaseio.com/movimiento/"+fecha+".json"
 	url_h = "https://proyard2.firebaseio.com/humedad/"+fecha+".json"
 	url_t = "https://proyard2.firebaseio.com/temperatura/"+fecha+".json"
+	url_hu = "https://proyard2.firebaseio.com/humo/"+fecha+".json"
 	valor_ant_t = ''
 	valor_ant_h = ''
 
 	while True:
 		#print ser.read(20)
-		lectura = ser.read(13).split(",")
+		lectura = ser.read(15).split(",")
 
 		print lectura
 		for x in lectura:
 			if lectura[0] == '1':
 				r_m = requests.post(url_m, data = json.dumps({ "referencia": "movimiento", "valor":lectura[0], "hora": hora, "fecha": fecha}))
+			
+			if lectura[1] == '1':
+				r_m = requests.post(url_m, data = json.dumps({ "referencia": "humo", "valor":lectura[1], "hora": hora, "fecha": fecha}))
 
-			if valor_ant_h != lectura[1]:
-				r_h = requests.post(url_h, data = json.dumps({ "referencia": "humedad", "valor":lectura[1], "hora": hora, "fecha": fecha}))
+			if valor_ant_h != lectura[2]:
+				r_h = requests.post(url_h, data = json.dumps({ "referencia": "humedad", "valor":lectura[2], "hora": hora, "fecha": fecha}))
 				print ("H: " + str(r_h.status_code))
-				valor_ant_h = lectura[1]
+				valor_ant_h = lectura[2]
 
-			if valor_ant_t != lectura[2]:
-				r_t = requests.post(url_t, data = json.dumps({ "referencia": "temperatura", "valor":lectura[2], "hora": hora, "fecha": fecha}))
+			if valor_ant_t != lectura[3]:
+				r_t = requests.post(url_t, data = json.dumps({ "referencia": "temperatura", "valor":lectura[3], "hora": hora, "fecha": fecha}))
 				print ("T: " + str(r_t.status_code))
-				valor_ant_t = lectura[2]
+				valor_ant_t = lectura[3]
 
 			#if lectura[0] == '1':
 
