@@ -37,7 +37,7 @@ for iPuerto in range(0, 9):
 if bEncontrado:
 
 	fecha = datetime.date.today().strftime('%Y-%m-%d')
-	ser = serial.Serial('COM5')
+	ser = serial.Serial(PUERTO)
 	lectura = ''
 	hora = datetime.datetime.now().time().strftime("%H:%M:%S")
 	url_m = "https://proyard2.firebaseio.com/movimiento/"+fecha+".json"
