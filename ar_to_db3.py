@@ -78,4 +78,13 @@ if bEncontrado:
 		r_hu = requests.post(url_hu, data = json.dumps({ "referencia": "gas", "valor":"0", "hora": hora, "fecha": fecha}))
 else:
     # Si no lo encuentra, muestra el mensaje de no encontrado
-	print 'No se ha encontrado Ardunio'
+    print 'No se ha encontrado Ardunio   ' + str(time.asctime(time.localtime(time.time())))
+
+    try:
+        log = open('log.txt','a')
+        log.write('No se ha encontrado Ardunio   ' + str(time.asctime(time.localtime(time.time()))) + '\n')
+        log.close()
+    except:
+        log = open('log.txt','w')
+        log.write('No se ha encontrado Ardunio   ' + str(time.asctime(time.localtime(time.time()))) + '\n')
+        log.close()
