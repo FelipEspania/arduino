@@ -1,4 +1,5 @@
 # arduino
+Scripts varios de arduino.
 
 Archivos finales del proyecto:
 
